@@ -69,3 +69,7 @@ server {
 }
 EOF
 sudo systemctl reload nginx
+
+sudo usermod -aG docker jenkins
+sudo systemctl restart jenkins
+sudo systemctl restart docker

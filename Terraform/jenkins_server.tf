@@ -70,4 +70,8 @@ resource "aws_instance" "EC2" {
     Environment = "dev"
     Name        = var.ec2_name
   }
+
+  root_block_device {
+    volume_size = 15
+  }
 }

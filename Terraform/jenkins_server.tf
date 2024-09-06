@@ -72,6 +72,6 @@ resource "aws_instance" "EC2" {
   }
 
   root_block_device {
-    volume_size = 15
+    volume_size = 20
   }
 }

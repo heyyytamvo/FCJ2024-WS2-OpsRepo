@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: heyyytamvo/eks:api-gateway-ca214a5
+        image: heyyytamvo/eks:api-gateway-d8addaa
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

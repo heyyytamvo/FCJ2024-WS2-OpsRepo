@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-api-gateway
+  labels:
+    app: api-gateway-app
+spec:
+  replicas: 3  # Modify replicas according to your case
+  selector:
+    matchLabels:
+      app: api-gateway-app
+  template:
+    metadata:
+      labels:
+        app: api-gateway-app
+    spec:
+      containers:
+      - name: api-gateway-container
+        image: heyyytamvo/eks:api-gateway-ca214a5
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-info
+  labels:
+    app: info-service
+spec:
+  replicas: 3  # Modify replicas according to your case
+  selector:
+    matchLabels:
+      app: info-service
+  template:
+    metadata:
+      labels:
+        app: info-service
+    spec:
+      containers:
+      - name: info-service-container
+        image: heyyytamvo/eks:info-service-e18d742
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3002
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-order
+  labels:
+    app: order-service
+spec:
+  replicas: 3  # Modify replicas according to your case
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service-container
+        image: heyyytamvo/eks:order-service-e18d742
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3001

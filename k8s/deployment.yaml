@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
       - name: order-service-container
-        image: heyyytamvo/eks:order-service-e18d742
+        image: heyyytamvo/eks:order-service-208d047
         imagePullPolicy: Always
         ports:
         - containerPort: 3001

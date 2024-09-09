@@ -53,3 +53,29 @@ variable "ec2_ami" {
   type        = string
   default     = "ami-0195204d5dce06d99" // AMZ Linux 2 by default
 }
+
+// EKS
+
+variable "cluster_name" {
+  description = "Name of EKS Cluster"
+  type        = string
+  default     = "WS2Cluster" // 
+}
+
+variable "worker_group_name" {
+  description = "Name for Worker Nodes"
+  type        = string
+  default     = "My-Worker-Group"
+}
+
+variable "number_of_workernodes" {
+  description = "Number of EKS Worker Nodes"
+  type        = number
+  default     = 3
+}
+
+variable "cluster_version" {
+  description = "Cluster Version"
+  type        = string
+  default     = "1.30"
+}

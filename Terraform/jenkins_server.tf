@@ -60,7 +60,7 @@ resource "aws_instance" "EC2" {
   instance_type               = var.ec2_instance_type
   key_name                    = aws_key_pair.EC2key.key_name
   monitoring                  = true
-  subnet_id                   = values(aws_subnet.public_subnets)[0].id
+  subnet_id                   = values(aws_subnet.public_subnets)[2].id
   vpc_security_group_ids      = [aws_security_group.EC2_SG.id]
   associate_public_ip_address = true
 

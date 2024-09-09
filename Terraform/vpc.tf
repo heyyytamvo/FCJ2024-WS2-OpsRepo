@@ -13,3 +13,17 @@ resource "aws_internet_gateway" "defaultIGW" {
     Name = "Internet Gateway"
   }
 }
+
+resource "aws_eip" "my_elastic_ip" {
+  domain = "vpc"
+}
+
+# NAT Gateway
+resource "aws_nat_gateway" "my_nat_gtw" {
+  allocation_id = aws_eip.my_elastic_ip.id
+  subnet_id     = values(aws_subnet.public_subnets)[0].id
+
+  tags = {
+    Name = "NAT Gateway"
+  }
+}

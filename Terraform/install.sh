@@ -73,3 +73,6 @@ sudo systemctl reload nginx
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 sudo systemctl restart docker
+sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+sudo chmod 700 get_helm.sh
+sudo bash get_helm.sh

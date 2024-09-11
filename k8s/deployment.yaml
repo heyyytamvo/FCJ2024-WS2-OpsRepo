@@ -5,7 +5,7 @@ metadata:
   labels:
     app: api-gateway-app
 spec:
-  replicas: 10  # Modify replicas according to your case
+  replicas: 3  # Modify replicas according to your case
   selector:
     matchLabels:
       app: api-gateway-app
@@ -28,7 +28,7 @@ metadata:
   labels:
     app: info-service
 spec:
-  replicas: 10  # Modify replicas according to your case
+  replicas: 3  # Modify replicas according to your case
   selector:
     matchLabels:
       app: info-service
@@ -51,7 +51,7 @@ metadata:
   labels:
     app: order-service
 spec:
-  replicas: 10  # Modify replicas according to your case
+  replicas: 3  # Modify replicas according to your case
   selector:
     matchLabels:
       app: order-service

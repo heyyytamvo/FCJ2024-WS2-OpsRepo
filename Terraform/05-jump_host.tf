@@ -1,22 +1,10 @@
 # Security Group for EC2
-resource "aws_security_group" "JENKINS_SG" {
-  name        = "JENKINS_SG"
-  description = "Allow HTTP inbound and all outbound traffic"
+resource "aws_security_group" "JUMP_HOST_SG" {
+  name        = "JUMP_HOST_SG"
+  description = "Allow SSH inbound and all outbound traffic"
   vpc_id      = aws_vpc.main.id
 
   ingress = [
-    {
-      from_port        = 80
-      to_port          = 80
-      protocol         = "tcp"
-      cidr_blocks      = ["0.0.0.0/0"]
-      description      = "Allow inbound traffic on port 80"
-      ipv6_cidr_blocks = []
-      prefix_list_ids  = []
-      security_groups  = []
-      self             = false
-    },
-
     {
       from_port        = -1
       to_port          = -1
@@ -50,25 +38,25 @@ resource "aws_security_group" "JENKINS_SG" {
   }
 
   tags = {
-    Name = "Jenkins Server SG"
+    Name = "JUMP_HOST SG"
   }
 }
 
-resource "aws_instance" "Jenkins_server" {
+resource "aws_instance" "Jump_host" {
 
   ami                         = var.ec2_ami
   instance_type               = var.ec2_instance_type
   key_name                    = aws_key_pair.EC2key.key_name
   monitoring                  = true
-  subnet_id                   = values(aws_subnet.public_subnets)[2].id
-  vpc_security_group_ids      = [aws_security_group.JENKINS_SG.id]
+  subnet_id                   = values(aws_subnet.public_subnets)[0].id
+  vpc_security_group_ids      = [aws_security_group.JUMP_HOST_SG.id]
   associate_public_ip_address = true
 
-  user_data = file("${path.module}/jenkins_install.sh")
+  user_data = file("${path.module}/jump_host_install.sh")
   tags = {
     Terraform   = "true"
     Environment = "dev"
-    Name        = "Jenkins Server"
+    Name        = "Jump Host"
   }
 
   root_block_device {

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: grafana
-          image: grafana/grafana:main-ubuntu@sha256:fe1c8ea81e250db847e84179dca9ad403f836fecab6129c1b495f5d6f649a26d
+          image: heyyytamvo/grafana:grafana
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 3000

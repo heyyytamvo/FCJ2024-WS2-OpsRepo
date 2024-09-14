@@ -5,7 +5,7 @@ metadata:
   labels:
     app: api-gateway-app
 spec:
-  replicas: 3  # Modify replicas according to your case
+  replicas: 2  # Modify replicas according to your case
   selector:
     matchLabels:
       app: api-gateway-app
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: heyyytamvo/eks:api-gateway-ca214a5
+        image: heyyytamvo/eks:api-gateway-c2a9715
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -28,7 +28,7 @@ metadata:
   labels:
     app: info-service
 spec:
-  replicas: 3  # Modify replicas according to your case
+  replicas: 4  # Modify replicas according to your case
   selector:
     matchLabels:
       app: info-service
@@ -51,7 +51,7 @@ metadata:
   labels:
     app: order-service
 spec:
-  replicas: 3  # Modify replicas according to your case
+  replicas: 2  # Modify replicas according to your case
   selector:
     matchLabels:
       app: order-service

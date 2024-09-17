@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: 730335476156.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-c380923
+        image: 730335476156.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-607daf8
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -28,7 +28,7 @@ metadata:
   labels:
     app: info-service
 spec:
-  replicas: 4  # Modify replicas according to your case
+  replicas: 2  # Modify replicas according to your case
   selector:
     matchLabels:
       app: info-service

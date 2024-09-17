@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: 891377192865.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-80aff6d
+        image: 730335476156.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-c380923
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: info-service-container
-        image: heyyytamvo/eks:info-service-e18d742
+        image: 730335476156.dkr.ecr.us-east-1.amazonaws.com/fcjws2:info-c380923
         imagePullPolicy: Always
         ports:
         - containerPort: 3002
@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
       - name: order-service-container
-        image: heyyytamvo/eks:order-service-208d047
+        image: 730335476156.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-c380923
         imagePullPolicy: Always
         ports:
         - containerPort: 3001

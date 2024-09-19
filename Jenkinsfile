@@ -22,10 +22,18 @@ pipeline {
             steps {
                 script {
                     // Run OWASP to perform DAST
-                    def owaspOutput = sh(script: "docker run -t zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}", returnStdout: true).trim()
+                    try {
+                        def owaspOutput = sh(
+                            script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",
+                            returnStdout: true
+                        ).trim()
 
-                    // Display OWASP results
-                    println owaspOutput
+                        // Display OWASP results
+                        println owaspOutput
+                        } catch (Exception e) {
+                        // Handle any errors that occur during the DAST execution
+                        error "DAST execution failed: ${e.message}"
+                    }
                 }
             }
         }

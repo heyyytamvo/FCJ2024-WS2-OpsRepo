@@ -21,7 +21,6 @@ pipeline {
         stage('DAST'){
             steps {
                 script {
-                    pt {
             // Run OWASP to perform DAST
             def owaspOutput = sh(
                 script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",

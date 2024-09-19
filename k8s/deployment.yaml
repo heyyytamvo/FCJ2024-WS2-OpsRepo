@@ -28,7 +28,7 @@ metadata:
   labels:
     app: info-service
 spec:
-  replicas: 2  # Modify replicas according to your case
+  replicas: 0  # Modify replicas according to your case
   selector:
     matchLabels:
       app: info-service

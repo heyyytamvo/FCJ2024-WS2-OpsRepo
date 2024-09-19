@@ -21,22 +21,27 @@ pipeline {
         stage('DAST'){
             steps {
                 script {
-                    // Run OWASP to perform DAST
-                    def owaspOutput = sh(
-                        script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",
-                        returnStdout: true,
-                        returnStatus: true
-                    )
+                    pt {
+            // Run OWASP to perform DAST
+            def owaspOutput = sh(
+                script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",
+                returnStdout: true
+            ).trim()
+            
+            def exitStatus = sh(
+                script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",
+                returnStatus: true
+            )
 
-                    // Check the output and ignore errors
-                    if (owaspOutput != 0) {
-                        println "DAST execution succeeded."
-                    } else {
-                        println "DAST execution succeeded."
-                    }
+            // Check the exit status and ignore errors
+            if (exitStatus != 0) {
+                println "DAST execution failed, but we're ignoring the error."
+            } else {
+                println "DAST execution succeeded."
+            }
 
-                    // Optionally, if you want to display the output regardless of success
-                    println owaspOutput.trim()
+            // Display the output
+            println owaspOutput
                 }
             }
         }

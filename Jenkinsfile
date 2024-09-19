@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PRODUCTION_LINK=""
+        PRODUCTION_LINK="http://a05cb21ead99f47d897b3216b5cf7974-1027332877.us-east-1.elb.amazonaws.com"
     }
 
     stages { 
@@ -19,15 +19,6 @@ pipeline {
         }
 
         stage('DAST'){
-            when { 
-                allOf {
-                    changeset "k8s/**"
-                    expression {  // there are changes in k8s/...
-                        sh(returnStatus: true, script: 'git diff k8s/') == 0
-                    }
-                }
-            }
-
             steps {
                 script {
                     // Run OWASP to perform DAST

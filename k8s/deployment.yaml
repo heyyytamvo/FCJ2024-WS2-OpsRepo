@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: 851725180020.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-6cacdc9
+        image: 339712719504.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-d966430
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -28,7 +28,7 @@ metadata:
   labels:
     app: info-service
 spec:
-  replicas: 0  # Modify replicas according to your case
+  replicas: 2  # Modify replicas according to your case
   selector:
     matchLabels:
       app: info-service
@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: info-service-container
-        image: 851725180020.dkr.ecr.us-east-1.amazonaws.com/fcjws2:info-ba80b12
+        image: 339712719504.dkr.ecr.us-east-1.amazonaws.com/fcjws2:info-d966430
         imagePullPolicy: Always
         ports:
         - containerPort: 3002
@@ -51,7 +51,7 @@ metadata:
   labels:
     app: order-service
 spec:
-  replicas: 5  # Modify replicas according to your case
+  replicas: 2  # Modify replicas according to your case
   selector:
     matchLabels:
       app: order-service
@@ -62,7 +62,7 @@ spec:
     spec:
       containers:
       - name: order-service-container
-        image: 851725180020.dkr.ecr.us-east-1.amazonaws.com/fcjws2:order-ba80b12
+        image: 339712719504.dkr.ecr.us-east-1.amazonaws.com/fcjws2:order-d966430
         imagePullPolicy: Always
         ports:
         - containerPort: 3001

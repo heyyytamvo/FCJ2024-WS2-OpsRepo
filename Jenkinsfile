@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PRODUCTION_LINK="http://a05cb21ead99f47d897b3216b5cf7974-1027332877.us-east-1.elb.amazonaws.com"
+        PRODUCTION_LINK="http://a5400f396e5b745ccaf07dcf49e61cb5-1644634720.us-east-1.elb.amazonaws.com"
     }
 
     stages { 
@@ -31,13 +31,6 @@ pipeline {
                 script: "docker run --rm zaproxy/zap-stable zap-baseline.py -t ${PRODUCTION_LINK}",
                 returnStatus: true
             )
-
-            // Check the exit status and ignore errors
-            if (exitStatus != 0) {
-                println "DAST execution failed, but we're ignoring the error."
-            } else {
-                println "DAST execution succeeded."
-            }
 
             // Display the output
             println owaspOutput

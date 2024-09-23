@@ -1,4 +1,4 @@
-# Security Group for EC2
+# Security Group for Jenkins Server
 resource "aws_security_group" "JENKINS_SG" {
   name        = "JENKINS_SG"
   description = "Allow HTTP inbound and all outbound traffic"

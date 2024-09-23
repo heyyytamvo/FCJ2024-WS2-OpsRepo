@@ -9,9 +9,9 @@ resource "aws_eks_node_group" "my_nodes" {
   instance_types = [var.ec2_instance_type]
 
   scaling_config {
-    desired_size = 3
-    max_size     = 4
-    min_size     = 2
+    desired_size = var.number_of_workernodes
+    max_size     = var.number_of_workernodes + 1
+    min_size     = var.number_of_workernodes - 1
   }
 
   update_config {

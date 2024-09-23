@@ -1,4 +1,4 @@
-# Security Group for EC2
+# Security Group for EC2 JUMP_HOST
 resource "aws_security_group" "JUMP_HOST_SG" {
   name        = "JUMP_HOST_SG"
   description = "Allow SSH inbound and all outbound traffic"

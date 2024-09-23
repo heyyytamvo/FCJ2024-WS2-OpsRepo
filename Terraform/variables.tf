@@ -79,3 +79,10 @@ variable "cluster_version" {
   type        = string
   default     = "1.30"
 }
+
+// ECR
+variable "ecr_repo_name" {
+  description = "Name for Registry"
+  type        = string
+  default     = "fcjws2"
+}

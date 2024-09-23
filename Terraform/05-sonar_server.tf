@@ -1,4 +1,4 @@
-# Security Group for EC2
+# Security Group for SONAR_HOST
 resource "aws_security_group" "SONAR_HOST_SG" {
   name        = "SONAR_HOST_SG"
   description = "Allow SSH, HTTP inbound and all outbound traffic"
@@ -68,7 +68,7 @@ resource "aws_instance" "Sonar_host" {
   tags = {
     Terraform   = "true"
     Environment = "dev"
-    Name        = "Sonar Host"
+    Name        = "Sonar Server"
   }
 
   root_block_device {

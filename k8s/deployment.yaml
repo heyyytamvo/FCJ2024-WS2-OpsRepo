@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api-gateway-container
-        image: 339712719504.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-d966430
+        image: 339712719504.dkr.ecr.us-east-1.amazonaws.com/fcjws2:api-gateway-6d9b15c
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

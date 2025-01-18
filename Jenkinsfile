@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PRODUCTION_LINK="http://a5400f396e5b745ccaf07dcf49e61cb5-1644634720.us-east-1.elb.amazonaws.com"
+        PRODUCTION_LINK="http://a5e3c82a09acf4cf8b0c096bff5f6130-199476554.us-east-1.elb.amazonaws.com"
     }
 
     stages { 
